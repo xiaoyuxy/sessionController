@@ -8,7 +8,7 @@ public class SessionControllerTest {
 			System.out.println("fail: " + msg);
 		}
 	}
-	//Test Case 1: Test Multiple Touches event
+	//Test Case 1: Test Multiple Touches event and getSession method
 	void testMultipleTouches() {
 		int trialNum = 4;
 		SessionControl.resetSingleton();
@@ -31,6 +31,8 @@ public class SessionControllerTest {
 			timer.setCurrentTimeStamp(currentTime);
 			session = controller.getCurrentSession();
 			assertThat(session == null, "last session should timeout");
+			
+			// test the getSessions function
 			assertThat(controller.getSessions().size() == i + 1, "session size should increase in each loop");
 		}
 		
